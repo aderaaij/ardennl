@@ -1,20 +1,44 @@
 import theaterJS from 'theaterjs';
-import { physics, css } from 'popmotion';
+import { physics, css, valueTypes } from 'popmotion';
 import Cookies from 'js-cookie';
 import slider from './slider';
 import data from '../../../data/data.json';
+
+const { percent } = valueTypes;
 
 if (!Cookies.get('visitCheck')) {
     introScene();
 } else {
     document.body.classList.add('no-js');
+    slider().setSlide(1);
 }
 
 function introScene() {
-    const bg = document.querySelector('.m-background');
+    const sliderElement = document.querySelector('.m-slider');
     const icons = Array.from(document.querySelectorAll('.m-social li'));
     const scene = theaterJS({ minSpeed: 60 });
     const logo = document.querySelector('.m-logo');
+    const logoRenderer = css(logo);
+    const sceneBg = document.querySelector('.m-intro__bg');
+    const sceneBgRenderer = css(sceneBg);
+
+    const introBgSlide = physics({
+        from: -100,
+        to: 0,
+        velocity: 30,
+        spring: 250,
+        friction: 0.9,
+        onUpdate: x => sceneBgRenderer.set('x', percent.transform(x)),
+    });
+
+    const logoSlide = physics({
+        from: -200,
+        to: 0,
+        velocity: 30,
+        spring: 250,
+        friction: 0.9,
+        onUpdate: x => logoRenderer.set('x', x),
+    });
 
     scene
         .on('type:start, erase:start', () => {
@@ -35,37 +59,35 @@ function introScene() {
         .addScene('arden:Hola...', 300)
         .addScene(`arden:${data.content.intro[0]}`)
         .addScene((done) => {
-            bg.classList.add('is-active');
+            sliderElement.classList.add('m-slider--active');
             document.querySelector('span').style.color = '#fff';
             setTimeout(() => {
                 document.querySelector('span').style.color = '#000';
-                bg.classList.add('is-shrunken');
-                physics({
-                    from: -200,
-                    to: 0,
-                    velocity: 80,
-                    spring: 300,
-                    friction: 0.8,
-                    onUpdate: x => css(logo).set('x', x),
-                }).start();
+                introBgSlide.start();
+                logoSlide.start();
             }, 900);
             setTimeout(() => {
                 done();
-            }, 1300);
+            }, 1500);
         })
         .addScene(data.content.intro[1])
         .addScene(data.content.intro[2])
         .addScene((done) => {
+            introBgSlide.setProps({
+                from: 0,
+                to: -100,
+            });
             setTimeout(() => {
-                bg.classList.remove('is-shrunken');
                 slider().goTo(1);
+                introBgSlide.start();
                 document.querySelector('.m-logo svg').style.fill = '#fff';
-                // document.querySelector('.m-logo svg').style.stroke = '#fff';
                 document.querySelector('.lisbon').style.color = '#fff';
-            }, 300);
-
+            }, 200);            
             setTimeout(() => {
-                bg.classList.add('is-shrunken');
+                introBgSlide.setProps({
+                    from: -100,
+                    to: 0,
+                }).start();
                 document.querySelector('.m-logo svg').style.fill = '#000';
                 document.querySelector('.lisbon').style.color = '#000';
                 done();

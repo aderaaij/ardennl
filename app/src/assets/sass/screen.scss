@@ -1,20 +1,25 @@
+// Import font
+@import url('https://use.typekit.net/qru3ayc.css');
+
 // General imports
 @import 'normalize/import-now';
 @import 'breakpoint';
 @import 'susy';
-@import url('https://use.typekit.net/qru3ayc.css');
 
 // Settings
 @import 'settings/fonts';
 @import 'settings/breakpoints';
 
-// Mixins
-
 // Base
 @import 'base/base';
 
+// Layouts
+@import 'layouts/l-intro';
+
 // Modules
 @import 'modules/m-intro';
+@import 'modules/m-social';
+@import 'modules/m-slider';
 
 .m-logo {
     position: absolute;
@@ -47,41 +52,6 @@
     }
 }
 
-.m-social {
-
-    & {
-        position: relative;
-        z-index: 501;
-        margin: auto 0 0;
-    }
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-    }
-
-    li {
-        transform: scale(0);
-
-        &:last-child {
-            margin: 0;
-        }
-
-        .no-js & {
-            transform: scale(1);
-        }
-    }
-
-    svg {
-        width: 24px;
-        height: 24px;
-        display: block;
-    }
-}
-
 .m-background {
     position: absolute;
     top: 0;
@@ -97,8 +67,7 @@
         transition: none;
     }
 
-    &::after {
-        content: '';
+    &__content {
         position: absolute;
         top: 0;
         left: 0;
@@ -153,7 +122,7 @@
 
     &.is-shrunken {
 
-        &::after {
+        .m-background__content {
             transform: translateX(0);
         }
     }

@@ -1,0 +1,52 @@
+.m-slider {
+    
+    & {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        // hide
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease-out;
+    }
+
+    .no-js & {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &--active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &__slides {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    &__slide {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        
+        // .no-js & {
+        //     display: none;
+        //     transform: translateX(0), translateZ(0);
+        // }
+        
+        // &:last-child {
+
+        //     .no-js & {
+        //         display: block;
+        //         transform: translateX(0) translateZ(0);
+        //     }
+        // }
+    }
+}

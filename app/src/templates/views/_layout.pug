@@ -17,8 +17,13 @@ html(lang="en")
 		meta(property='og:description', content=siteInfo.description)
 		meta(property='og:url', content=siteInfo.url)
 		meta(property='og:site_name', content=siteInfo.title)
-		meta(property='og:image', content='http://arden.nl/assets/img/arden.jpeg')
-		meta(property='og:image:secure_url', content='https://arden.nl/assets/img/arden.jpeg')
+		meta(property='og:image', content='https://arden.nl/assets/img/favicons/android-chrome-512x512.png')
+		meta(property='og:image:secure_url', content='https://arden.nl/assets/img/favicons/android-chrome-512x512.png')
+		meta(name='twitter:card', content='summary')
+		meta(name='twitter:description', content=siteInfo.description)
+		meta(name='twitter:title', content=siteInfo.title)
+		meta(name='twitter:site', content='@ardennl')
+		meta(name='twitter:image', content='https://arden.nl/assets/img/favicons/android-chrome-512x512.png')
 		link(rel="apple-touch-icon", sizes="180x180", href="/assets/img/favicons/apple-touch-icon.png")
 		link(rel="icon", type="image/png", sizes="32x32", href="/assets/img/favicons/favicon-32x32.png")
 		link(rel="icon", type="image/png", sizes="16x16", href="/assets/img/favicons/favicon-16x16.png")
@@ -27,17 +32,6 @@ html(lang="en")
 		link(rel="shortcut icon", href="/assets/img/favicons/favicon.ico")
 		meta(name="msapplication-config", content="/assets/img/favicons/browserconfig.xml")
 		meta(name="theme-color", content="#ffffff")
-		
-	body(class='no-js')
-		script.
-			document.body.classList.remove('no-js');
-		.m-logo
-			include ../../assets/img/logo.svg
-
-		block content
-			
-
-		script(src='assets/js/script.js')
 		script(type='text/javascript').
 			var _paq = _paq || [];
 			/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -51,3 +45,14 @@ html(lang="en")
 			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
 			})();
 			// End Piwik Code
+		
+	body(class='no-js')
+		script.
+			document.body.classList.remove('no-js');
+		.m-logo
+			include ../../assets/img/logo.svg
+
+		block content
+			
+
+		script(src='assets/js/script.js')

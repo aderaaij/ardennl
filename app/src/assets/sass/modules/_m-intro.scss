@@ -1,0 +1,118 @@
+.m-intro {
+
+    & {
+        position: relative;
+        z-index: 101;
+        width: 100vw;
+        height: 100vh;
+        padding: 0 1.5em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        @include breakpoint($bpDesktopSmall) {
+            width: 70vw;
+            padding: 0 2em;
+        }
+
+        @include breakpoint($bpDesktop) {
+            padding: 0 3em;
+        }
+    }
+    
+    &__textWrap {
+        margin: 0;
+
+        @include breakpoint($bpDesktopSmall) {
+            margin-top: auto;
+        }
+    }
+
+    &__social {
+        margin-top: 1em;
+        padding-bottom: 2em;
+
+        @include breakpoint($bpDesktopSmall) {
+            margin-top: auto;
+        }
+    }
+
+    &__title {
+        visibility: hidden;
+        font-size: 1.5em;
+        line-height: 1.2em;
+
+        @include breakpoint($bpTablet) {
+            font-size: 2.5em;
+        }
+      
+        @include breakpoint($bpDesktop) {
+          font-size: 3.5em;
+        }
+        
+        &.is-typing {
+            
+            &::after {
+                content: '|';
+                animation: blink 0.6s infinite;
+                font-weight: 300;
+            }
+        }
+
+        &.is-active {
+            visibility: visible;
+        }
+    
+        span {
+            position: relative;
+    
+            &::after {
+                content: '';
+                position: absolute;
+                transition: all 0.3s ease;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: #e53935;
+    
+                @include breakpoint($bpDesktop) {
+                    height: 2px;
+                    bottom: 5px;
+                }
+            }
+        }
+
+        .no-js & {
+            visibility: visible;
+        }
+    }
+
+    &__text {
+        font-size: 1.125em;
+        font-family: $fontBody;
+        line-height: 1.4;
+        visibility: hidden;
+
+        @include breakpoint($bpTablet) {
+            font-size: 1.25em;
+        }
+
+        @include breakpoint($bpDesktop) {
+            line-height: 1.55;
+            max-width: 80%;
+        }
+
+        &.is-active {
+            visibility: visible;
+        }
+
+        a { 
+            color: #e53935;
+        }
+
+        .no-js & {
+            visibility: visible;
+        }
+    }
+}

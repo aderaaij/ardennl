@@ -45,7 +45,12 @@ const webpackExports = (env) => {
                     NODE_ENV: JSON.stringify('production'),
                 },
             }),
-            new webpack.optimize.UglifyJsPlugin(),
+            new webpack.optimize.UglifyJsPlugin({
+                output: {
+                    comments: false,
+                    ascii_only: true,
+                },
+            }),
             new webpack.NoEmitOnErrorsPlugin(),
         );
     }

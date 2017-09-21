@@ -1,3 +1,22 @@
 * {
   box-sizing: border-box;
 }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  height: 100vh;
+  font-family: $fontHeader;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 900;
+}

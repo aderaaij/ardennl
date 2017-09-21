@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const plugins = require('gulp-load-plugins')();
 const config = require('../config/templates');
 const errorHandler = require('../lib/errorHandler');
+const fs = require('fs');
 
 const templatesTask = () => gulp.src(config.source)
 
@@ -12,7 +13,7 @@ const templatesTask = () => gulp.src(config.source)
     .on('error', errorHandler)
 
     // Cache templates if watching
-    .pipe(plugins.if(global.isWatching, plugins.cached('pug')))
+    // .pipe(plugins.if(global.isWatching, plugins.cached('pug')))
 
     // Watch partials for change
     .pipe(plugins.pugInheritance(config.pugInheritance))
@@ -29,6 +30,9 @@ const templatesTask = () => gulp.src(config.source)
 
     // Use gulp plumber to prevent a hanging watch-task on error
     .pipe(plugins.plumber())
+
+    // Get data
+    .pipe(plugins.data(() => JSON.parse(fs.readFileSync('./app/src/data/data.json'))))
 
     // Output HTML from pug
     .pipe(plugins.pug({ pretty: true }))

@@ -4,4 +4,35 @@ block vars
 	- var bodyClass = 'home'
 
 block content
-	h1 Time to start hacking away!
+	.m-background
+		.m-background__inner(style='background-image:url(/assets/img/arden.jpeg)')
+		.m-background__inner(style='background-image:url(/assets/img/lisbon.jpg)')
+	.m-intro
+		.m-intro__textWrap
+			h1.m-intro__title#arden
+				each intro in content.intro
+					| !{intro}
+			.m-intro__text#ardenSmall
+				each introSmall in content.introSmall
+					| !{introSmall}
+		.m-intro__social
+			.m-social
+				ul
+					li.m-social__li.m-social__li--github
+						a(href='https://github.com/aderaaij/' title="Arden de Raaij on Github" target="_blank")
+							+svg('icon-github', '0 0 32 32', 'm-social__icon')
+					li.m-social__li.m-social__li--codepen
+						a(href='https://codepen.io/aderaaij/' title="Arden de Raaij on Codepen" target="_blank")
+							+svg('icon-codepen', '0 0 32 32', 'm-social__icon')
+					li.m-social__li.m-social__li--linkedin
+						a(href='https://www.linkedin.com/in/ardenderaaij/' title="Arden de Raaij on LinkedIn" target="_blank")
+							+svg('icon-linkedin', '0 0 32 32', 'm-social__icon')
+					li.m-social__li.m-social__li--instagram
+						a(href='https://instagram.com/ardennl/' title="Arden de Raaij on LinkedIn" target="_blank")
+							+svg('icon-instagram', '0 0 32 32', 'm-social__icon')
+					li.m-social__li.m-social__li--twitter
+						a(href='http://twitter.com/ardennl' title="Arden de Raaij on Twitter" target="_blank")
+							+svg('icon-twitter', '0 0 32 32', 'm-social__icon')
+					li.m-social__li.m-social__li--mail
+						a(href='mailto:a.de.raaij@gmail.com' title="Send an e-mail to Arden de Raaij" target="_blank")
+							+svg('icon-paperplane', '0 0 32 32', 'm-social__icon')

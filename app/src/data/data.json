@@ -1,0 +1,26 @@
+{
+    "siteInfo": {
+        "title": "Arden.nl",
+        "tagLine": "Front-end web developer based in Lisbon, Portugal",
+        "url":  "https://arden.nl",
+        "description": "Arden de Raaij, front-end web developer based in Lisbon, Portugal"
+    },
+    "content": {
+        "intro": [
+            "Hi. I'm <span>Arden</span>", 
+            "<br/>I'm a front-end developer", 
+            "<br/>based in <span class='lisbon'>Lisbon</span>",
+            ", Portugal 🇵🇹"
+        ],
+        "introSmall": [
+            "<p>I create awesome websites/web-apps which are enjoyable and fun to use. ",
+            "You can find some of my code on <a href='https&colon;//github.com/aderaaij/' target='_blank'>Github</a>",
+            ", see my experiments on <a href='https&colon;//codepen.io/aderaaij/' target='_blank'>Codepen</a>",
+            ", and view my CV/experience on <a href='https&colon;//www.linkedin.com/in/ardenderaaij/' target='_blank'>LinkedIn</a>.</p>",
+            "<p>I love photography and traveling, the combination of which you can find on my <a href='http&colon;//instagram.com/ardennl'>Instagram</a>.",
+            " You can follow me on <a href='http&colon;//twitter.com/ardennl' target='_blank'>Twitter</a>",
+            " for random shower thoughts. <p>Feel free to <a href='mailto&colon;a.de.raaij@gmail.com' target='_blank' title='Send an e-mail to Arden de Raaij'>contact me</a>",
+            " for all the things webrelated!</p>"
+        ]
+    }
+}

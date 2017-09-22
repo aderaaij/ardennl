@@ -1,3 +1,6 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable function-paren-newline */
+
 console.log('WORKER: executing.');
 
 /* A version number is useful when updating the worker logic,
@@ -11,7 +14,11 @@ const version = 'v1::';
 */
 const offlineFundamentals = [
     '',
+    '/assets/img/arden.jpeg',
+    '/assets/img/lisbon.jpg',
+    '/assets/img/logo.svg',
     '/assets/js/script.js',
+    '/assets/css/screen.css',
 ];
 
 /* The install event fires when the service worker is first installed.

@@ -9,7 +9,10 @@ const webpackExports = (env) => {
 
     const webpackConfig = {
         cache: false,
-        entry: config.entries,
+        entry: {
+            script: `${config.base}script.js`,
+            '../../service-worker': [`${config.base}standalone/service-worker.js`],
+        },
         output: {
             path: path.resolve(__dirname, '../../app/build/assets/js/'),
             publicPath: '/js/',
@@ -46,6 +49,10 @@ const webpackExports = (env) => {
                 },
             }),
             new webpack.optimize.UglifyJsPlugin({
+                compress: {
+                    warnings: false,
+                    drop_console: true,
+                },
                 output: {
                     comments: false,
                     ascii_only: true,

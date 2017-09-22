@@ -27,9 +27,6 @@ export default function slider() {
                 spring: 300,
                 friction: 0.9,
                 onUpdate: x => slideRenderer.set('x', percent.transform(x)),
-                onComplete: () => {
-                    console.log(cb);
-                },
             }).start();
         }
     }

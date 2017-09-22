@@ -5,14 +5,14 @@
         z-index: 101;
         width: 100%;
         min-height: 100vh;
-        padding: 100px 1.5em 0;
+        padding: 70px 1.5em 0;
         display: flex;
         justify-content: center;
         flex-direction: column;
-        background-color: rgba(#fff, 0.9);
+        // background-color: rgba(#fff, 0.9);
 
         @include breakpoint($bpDesktopSmall) {
-            padding: 0 2em;
+            padding: 70px 2em 0;
             background-color: transparent;
         }
 
@@ -30,7 +30,7 @@
         background-color: rgba(#fff, 0.9);
         z-index: 1;
         transform: translateX(-100%);
-        display: none;
+        // display: none;
 
         @include breakpoint($bpDesktopSmall) {
             display: block;
@@ -145,4 +145,9 @@
             visibility: visible;
         }
     }
+}
+
+@keyframes blink {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }

@@ -1,5 +1,6 @@
 {
     "name": "Arden.nl",
+    "short_name": "Arden.nl",
     "icons": [
         {
             "src": "/img/favicons/android-chrome-192x192.png",

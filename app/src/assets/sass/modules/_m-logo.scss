@@ -1,0 +1,38 @@
+.m-logo {
+    position: absolute;
+    z-index: 301;
+    top: 1.5em;
+    left: 1.5em;
+    transform: scale(0);
+    transition: opacity 0.15s ease-in;
+
+    .no-js & {
+        transform: scale(1);
+    }
+
+    &.headroom {
+        
+        &--not-top {
+            opacity: 0;
+        }
+    }
+
+    @include breakpoint($bpDesktopSmall) {
+        left: 2em;
+        top: 2em;
+    }
+
+    @include breakpoint($bpDesktop) {
+        left: 3em;
+        top: 3em;
+    }
+
+    svg {
+        display: block;
+        width: 120px;
+
+        @include breakpoint($bpDesktop) {
+            width: 200px;
+        }
+    }
+}
